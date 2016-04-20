@@ -78,7 +78,7 @@ frameworks () {
 text_editors () {
 	clear
 	current_list
-	for i in "31.Vim\n32.GNU/Emacs\n33.Sublime\n34.Atom\n35.Komodo\n36.Brackets"; do
+	for i in "31.Vim\n32.GNU/Emacs(24.3)\n33.Sublime\n34.Atom\n35.Komodo\n36.Brackets"; do
 		echo -e $i
 	done
 	read -p "Enter options seperated by comma..(eg. 31,32) (0 to go to main menu).." OPTION
@@ -333,6 +333,17 @@ start_install () {
 		elif [ "$i" == "33.Sublime" ]; then
 			wget https://download.sublimetext.com/sublime-text_build-3103_amd64.deb
 			sudo dpkg -i sublime-text_build-3103_amd64.deb
+		elif [ "$i" == "32.GNU/Emacs" ]; then
+			sudo add-apt-repository ppa:ubuntu-elisp/ppa
+			sudo apt-get update
+			sudo apt-get install emacs-snapshot emacs-snapshot-el
+		elif [ "$i" == "34.Atom" ]; then
+			wget https://github.com/atom/atom/releases/download/v1.7.2/atom-amd64.deb
+			sudo dpkg -i atom-amd64.deb
+		elif [ "$i" == "36.Brackets" ]; then
+			sudo add-apt-repository ppa:webupd8team/brackets
+			sudo apt-get update
+			sudo apt-get install brackets
 		elif [ "$i" == "51.Terminator" ]; then
 			sudo add apt-repository ppa:gnome-terminator
 			sudo apt-get update
